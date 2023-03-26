@@ -43,6 +43,18 @@
         top: 0;
         color: #333;
       }
+      a {
+        display: inline-block;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      a:hover {
+        background-color: #666;
+      }
     </style>
   </head>
   <body>
@@ -61,6 +73,8 @@
           <p><%= message %></p>
         <% end %>
       <% end %>
+      <%= link_to '違う料理が良い！', '/re_suggest_today_meal', method: :delete, class: "button" %>
+      <%= link_to "今日のごはんは「#{@suggest_today_meal[0]}」にします！", interview_yesterday_meal_path, class: "button" %>
     </main>
   </body>
 </html>
