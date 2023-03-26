@@ -40,10 +40,10 @@
   </head>
   <body>
     <h1>CookAI</h1>
-    <form method="post" action="">
-      <label for="food">昨日は何を食べましたか？</label>
-      <input type="text" id="food" name="food">
-      <input type="submit" value="バランスの良い食事を提案">
-    </form>
+      <%= form_tag interview_yesterday_meal_path do %>
+        <%= label_tag 'yesterday_meal', '昨日は何を食べましたか？' %>
+        <%= text_field_tag 'yesterday_meal' %>
+        <%= submit_tag 'バランスの良い食事を提案' %>
+      <% end %>
   </body>
 </html>
