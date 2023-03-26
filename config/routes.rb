@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post 'interview_yesterday_meal', to: 'think_menu#interview_yesterday_meal_submit'
   get 'suggest_today_meal', to: 'think_menu#suggest_today_meal'
 
+  delete '/re_suggest_today_meal', to: 'think_menu#re_suggest_today_meal'
 end

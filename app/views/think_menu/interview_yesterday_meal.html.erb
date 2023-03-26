@@ -40,10 +40,15 @@
   </head>
   <body>
     <h1>CookAI</h1>
-      <%= form_tag interview_yesterday_meal_path do %>
-        <%= label_tag 'yesterday_meal', '昨日は何を食べましたか？' %>
-        <%= text_field_tag 'yesterday_meal' %>
-        <%= submit_tag 'バランスの良い食事を提案' %>
+      <%= form_with(url: interview_yesterday_meal_path, method: :post) do |form| %>
+        <%= form.label :yesterday_meal, '昨日は何を食べましたか？' %>
+        <%= form.text_field :yesterday_meal, list: "ates" %>
+        <datalist id="ates">
+          <% @ates.each do |ate| %>
+            <option value=<%= ate.name %>>
+          <% end %>
+        </datalist>
+        <%= form.submit 'バランスの良い食事を提案' %>
       <% end %>
   </body>
 </html>
