@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>おすすめの食事アイデア</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        margin: 0;
+      }
+      main {
+        margin: 20px;
+      }
+      h2 {
+        color: #333;
+        font-size: 24px;
+        margin-top: 40px;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      li:before {
+        content: "・";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>おすすめの食事アイデア</h1>
+    </header>
+    <main>
+      <h2>昨日「<%= session[:yesterday_meal] %>」を食べた方におすすめの食事</h2>
+      <% if @suggest_today_meal.length == 2 %>
+        <ul>
+          <li><%= @suggest_today_meal[0] %>：<%= @suggest_today_meal[1] %></li>
+        </ul>
+        <p>以上のアイデアを参考に、自分に合った食事を楽しんでください。</p>
+      <% else %>
+        <% @suggest_today_meal.each do |message| %>
+          <p><%= message %></p>
+        <% end %>
+      <% end %>
+    </main>
+  </body>
+</html>
