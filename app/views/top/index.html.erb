@@ -1,1 +1,49 @@
-welcome CookAI
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>昨日食べた物の入力フォーム</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      label {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        font-size: 1.2em;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #008CBA;
+        color: #fff;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CookAI</h1>
+    <form method="post" action="">
+      <label for="food">昨日は何を食べましたか？</label>
+      <input type="text" id="food" name="food">
+      <input type="submit" value="バランスの良い食事を提案">
+    </form>
+  </body>
+</html>
