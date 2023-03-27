@@ -50,5 +50,6 @@
         </datalist>
         <%= form.submit 'バランスの良い食事を提案' %>
       <% end %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
   </body>
 </html>
