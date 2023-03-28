@@ -3,14 +3,25 @@
   <head>
     <title>昨日食べた物の入力フォーム</title>
     <style>
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin: 0;
+      }
+
+      h1 {
         margin-top: 50px;
       }
 
+      form {
+        margin-top: 30px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       label {
+        display: block;
         margin-bottom: 10px;
         font-size: 1.2em;
         font-weight: bold;
@@ -22,12 +33,15 @@
         border-radius: 5px;
         border: 1px solid #ccc;
         width: 100%;
-        max-width: 400px;
         box-sizing: border-box;
         margin-bottom: 20px;
       }
 
       input[type="submit"] {
+        display: block;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
         padding: 10px 20px;
         background-color: #008CBA;
         color: #fff;
@@ -60,9 +74,9 @@
         </datalist>
         <%= form.submit 'バランスの良い食事を提案' %>
       <% end %>
-      <div class="links">
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <%= link_to '食べたものを確認する', calendar_path %>
-      </div>
+    <div class="links">
+      <a href="<%= destroy_user_session_path %>" data-method="delete">ログアウト</a>
+      <a href="<%= calendar_path %>">食べたものを確認する</a>
+    </div>
   </body>
 </html>
