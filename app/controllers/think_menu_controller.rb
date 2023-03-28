@@ -1,6 +1,8 @@
 class ThinkMenuController < ApplicationController
+  before_action :authenticate_user!
+
   def interview_yesterday_meal
-    @ates = Ate.where(user: User.find(1)).order(created_at: :desc)
+    @ates = Ate.where(user: current_user).order(created_at: :desc)
   end
 
   def interview_yesterday_meal_submit
@@ -41,11 +43,11 @@ class ThinkMenuController < ApplicationController
       }
     )
     @suggest_today_meal = response.dig("choices", 0, "message", "content").split
-    @ate = Ate.new(name: @suggest_today_meal[0], user: User.find(1)).save
+    @ate = Ate.new(name: @suggest_today_meal[0], user: current_user).save
   end
 
   def re_suggest_today_meal
-    @ate = Ate.where(user: User.find(1)).order(created_at: :desc).limit(1)
+    @ate = Ate.where(user: current_user).order(created_at: :desc).limit(1)
     @ate[0].destroy
     redirect_to suggest_today_meal_path
   end
