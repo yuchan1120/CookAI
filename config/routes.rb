@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get '/users', to: redirect('/')
   root 'think_menu#interview_yesterday_meal'
 
   get 'interview_yesterday_meal', to: 'think_menu#interview_yesterday_meal'
