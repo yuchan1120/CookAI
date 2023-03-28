@@ -36,6 +36,16 @@
         border-radius: 5px;
         cursor: pointer;
       }
+
+      .links {
+        margin-top: 50px;
+      }
+
+      .links a {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
     </style>
   </head>
   <body>
@@ -50,6 +60,9 @@
         </datalist>
         <%= form.submit 'バランスの良い食事を提案' %>
       <% end %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <div class="links">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <%= link_to '食べたものを確認する', calendar_path %>
+      </div>
   </body>
 </html>

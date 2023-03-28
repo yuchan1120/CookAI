@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'suggest_today_meal', to: 'think_menu#suggest_today_meal'
 
   delete '/re_suggest_today_meal', to: 'think_menu#re_suggest_today_meal'
+
+  get 'calendar', to: 'calendar#index'
 end

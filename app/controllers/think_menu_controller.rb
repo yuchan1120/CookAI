@@ -43,7 +43,7 @@ class ThinkMenuController < ApplicationController
       }
     )
     @suggest_today_meal = response.dig("choices", 0, "message", "content").split
-    @ate = Ate.new(name: @suggest_today_meal[0], user: current_user).save
+    @ate = Ate.new(name: @suggest_today_meal[0], user: current_user, start_time: Time.zone.now).save
   end
 
   def re_suggest_today_meal
