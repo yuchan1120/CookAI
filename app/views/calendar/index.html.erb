@@ -1,0 +1,9 @@
+<%= month_calendar events: @ates do |date, ates| %>
+  <%= date.day %>
+
+  <% ates.each do |ate| %>
+    <div>
+      <%= ate.name %>
+    </div>
+  <% end %>
+<% end %>
